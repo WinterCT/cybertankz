@@ -1,0 +1,187 @@
+.tournament {
+    &__item {
+        @include add-prefix(transition, $transition);
+
+        &--frame {
+            @include add-prefix(transition, $transition);
+            background-color: $body-color;
+            background-image: url(../images/tournament/frame-bg.png);
+            background-size: cover;
+            background-blend-mode: luminosity;
+            background-position: center;
+            padding: 10px;
+
+            &:hover {
+                background-blend-mode: normal;
+            }
+        }
+
+        &-inner {
+            @extend %text-center,
+            %hidden;
+            background-color: $body-color;
+            padding: 30px;
+        }
+
+        &-title {
+            @extend %mb-25;
+
+            h3 {
+                @extend %mb-10;
+            }
+
+            p {
+                @extend %mb-0;
+            }
+        }
+
+        &-tournament {
+            a {
+                @include add-prefix(transition, $transition);
+
+                &:hover {
+                    @include add-prefix(transform, rotateY(1turn));
+                }
+            }
+        }
+
+        &-thumb {
+            @extend %mb-20;
+
+            >ul {
+                @extend %flex,
+                %align-items-center,
+                %justify-evenly,
+                %mb-0;
+                gap: 10px;
+            }
+        }
+
+        &:hover {
+            @include add-prefix(transform, translateY(-5px));
+
+        }
+    }
+}
+
+
+//tournament single
+
+.about-tournament {
+    background-color: $primary-color;
+
+    &-thumb {
+        @extend %rel;
+
+        img {
+            @extend %w-100;
+        }
+
+        .game-name {
+            @extend %abs,
+            %p-15;
+            background-color: $primary-color;
+            border: 1px solid $theme-color;
+            bottom: 15px;
+            left: 15px;
+            max-width: 30%;
+
+            @include breakpoint(lg) {
+                padding: 1.5rem;
+                bottom: 30px;
+                left: 30px;
+                max-width: 100%;
+            }
+        }
+    }
+
+    &-content {
+        padding: 35px 25px;
+
+        @include breakpoint(md) {
+            padding: 50px 30px;
+        }
+    }
+
+    &-title {
+        h3 {
+            @include font-size(36px);
+        }
+    }
+
+    &-top {
+        @extend %flex,
+        %justify-between,
+        %align-items-center;
+        padding-bottom: 50px;
+        border-bottom: 1px solid rgba($white-color, $alpha: .20);
+        gap: 30px;
+    }
+
+    &-bottom {
+        padding-top: 50px
+    }
+
+    &-subtitle {
+        @extend %flex,
+        %align-items-center,
+        %justify-between,
+        %mb-20;
+        gap: 10px;
+
+        h4 {
+            @extend %mb-0;
+        }
+    }
+
+}
+
+.tournament-placetime {
+    @extend %flex,
+    %align-items-center,
+    %mb-0;
+    row-gap: .5rem;
+    column-gap: 1.75rem;
+
+    li {
+        span {
+            @extend %mr-10;
+        }
+
+        a {
+            color: $theme-color;
+        }
+    }
+}
+
+.tournament-aminities {
+    @extend %flex,
+    %align-items-center;
+    gap: 10px;
+
+    @include breakpoint(lg) {
+        justify-content: flex-end;
+    }
+
+    &-item {
+        background-color: $body-color;
+        padding: .5rem 1rem;
+
+        @include breakpoint(lg) {
+            padding: .75rem 1.5rem;
+        }
+
+        p {
+            @extend %mb-0;
+        }
+
+        .tournament-am-title {
+            @extend %mb-5;
+        }
+
+        .tournament-am-details {
+            color: $theme-color;
+            text-transform: capitalize;
+        }
+    }
+}

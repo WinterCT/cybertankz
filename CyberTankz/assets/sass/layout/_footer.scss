@@ -1,0 +1,193 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+
+.footer-section {
+    background-color: $primary-color;
+    background-size: cover;
+
+    @include breakpoint(lg) {
+        position: relative;
+    }
+
+
+    //Middle footer part
+    .footer-middle {
+        @extend %rel;
+        background-size: cover;
+        background-position: center;
+
+
+        .footer-middle-item-wrapper {
+            @extend %rel;
+            z-index: 9;
+
+            .footer-middle-item {
+                margin-bottom: 40px;
+
+                .fm-item-title {
+                    h4 {
+                        margin-bottom: 25px;
+                    }
+                }
+
+                .fm-item-content {
+                    .footer-abt-img {
+                        margin-bottom: 15px;
+                    }
+
+                    .fm-item-widget {
+                        margin-bottom: 12px;
+
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+
+                        .lab-inner {
+                            @extend %flex;
+                            align-items: center;
+
+                            .lab-thumb {
+                                width: 80px;
+                                overflow: hidden;
+
+                                a {
+                                    img {
+                                        @include add-prefix(transition, $transition);
+                                    }
+                                }
+                            }
+
+                            .lab-content {
+                                width: calc(100% - 80px);
+                                @extend %pl-20;
+
+                                h6 {
+                                    @extend %mb-5;
+
+                                    a {
+                                        color: $white-color;
+                                        font-size: 16px;
+                                        @extend %text-clamp-2;
+                                        line-height: 1.5;
+                                    }
+                                }
+
+                                p {
+                                    margin: 0px;
+                                    font-size: $fs-small;
+                                    font-weight: 700;
+                                    text-transform: capitalize;
+
+                                    b {
+                                        margin-left: 5px;
+                                        font-weight: 500;
+                                    }
+                                }
+
+                                .rating {
+                                    i {
+                                        @extend %white-color;
+                                    }
+                                }
+                            }
+                        }
+
+                        &:hover {
+                            .lab-thumb {
+                                a {
+                                    img {
+                                        transform: scale(1.1) rotate(-5deg);
+                                    }
+                                }
+                            }
+
+                            .lab-content {
+                                h6 {
+                                    a {
+                                        color: $white-color;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .useful-linklist {
+                column-count: 2;
+
+                li {
+                    &:not(:last-child) {
+                        margin-bottom: 15px;
+                    }
+                }
+            }
+
+            .useful-link {
+                @extend %rel,
+                %pl-10;
+                @include add-prefix(transition, $transition);
+
+                &:before {
+                    @extend %abs;
+                    content: "\ea69";
+                    font-family: "IcoFont";
+                    left: -5px;
+                }
+
+                &:hover {
+                    @include add-prefix(transform, translateX(5px));
+                }
+            }
+
+            .footer__winner {
+                @extend %flex;
+                gap: 10px;
+
+                &-item {
+                    @extend %hidden,
+                    %h-100,
+                    %w-100;
+
+                    img {
+                        @extend %h-100,
+                        %w-100;
+                        @include add-prefix(transition, $transition);
+                    }
+
+                    &:hover {
+                        img {
+                            @include add-prefix(transform, scale(1.1));
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+    //footer-bottom
+    .footer-bottom {
+
+        .footer-bottom-content {
+            padding: 38px 0;
+
+            p {
+                margin: 0;
+
+                a {
+                    color: $white-color;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+
+    .rating {
+        i {
+            @include font-size(14px);
+            @extend %white-color;
+        }
+    }
+}

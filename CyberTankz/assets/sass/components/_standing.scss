@@ -1,0 +1,78 @@
+.standing {
+    @extend %hidden;
+
+    &__header {
+        background-color: $theme-color;
+        padding: .5rem 1.5rem;
+
+        h5 {
+            @extend %mb-0;
+        }
+    }
+
+    &__list {
+        @extend %mb-0;
+    }
+
+    &__item {
+        @include add-prefix(transition, $transition);
+        background-color: $primary-color;
+        padding: 1rem;
+
+        @include breakpoint(md) {
+            padding: 1rem 1.5rem;
+        }
+
+        border: 1px solid rgba($theme-color, $alpha: .20);
+
+        &--subheader {
+            background-color: $secondary-color !important;
+            transform: none !important;
+        }
+
+        &:hover {
+            border-color: rgba($theme-color, $alpha: .50);
+            @include add-prefix(transform, scale(1.03));
+        }
+
+        &:not(:last-child) {
+            @extend %mb-10;
+        }
+
+        &-inner {
+            @extend %flex,
+            %align-items-center,
+            %justify-between;
+            gap: 10px;
+        }
+
+        &-status {
+            @extend %flex,
+            %align-items-center;
+            gap: 1.5rem;
+
+            h5,
+            p {
+                @extend %mb-0;
+                font-family: $title-font;
+            }
+        }
+
+        &-team {
+            a {
+                span {
+                    @extend %d-inline-block,
+                    %mr-10;
+                    max-inline-size: 40px;
+                }
+
+                font-weight: 400;
+                font-family: $title-font
+            }
+
+            h6 {
+                @extend %mb-0;
+            }
+        }
+    }
+}

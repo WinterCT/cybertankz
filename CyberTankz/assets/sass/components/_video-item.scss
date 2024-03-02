@@ -1,0 +1,78 @@
+.video-item {
+    .video-inner {
+        border: 10px solid $primary-color;
+
+        .video-thumb {
+            @extend %hidden;
+
+            img {
+                @include add-prefix(transition, $transition);
+            }
+        }
+
+        .video-content {
+            @extend %p-30;
+
+
+
+            h3 {
+                @extend %text-center;
+                @extend %mb-0;
+
+                a {
+                    @extend %text-clamp-1;
+                    color: $white-color
+                }
+            }
+        }
+    }
+
+    &:hover {
+        .video-thumb {
+            img {
+                @include add-prefix(transform, scale(1.1));
+            }
+        }
+    }
+}
+
+.abs-video-content {
+    @extend %abs;
+    left: 0px;
+    bottom: 0px;
+    @extend %w-100;
+}
+
+.video-icon {
+    @extend %abs;
+    @extend %center;
+    z-index: 1;
+    @include animation(ripple 1.5s linear infinite);
+    border-radius: 50%;
+
+    a {
+        @extend %d-inline-block;
+
+    }
+
+    i {
+        @include font-size(60px);
+        z-index: 1;
+        @extend %rel;
+        @extend %bg-theme;
+        @extend %white-color;
+        @extend %d-inline-block;
+        border-radius: 100%;
+    }
+}
+
+.video-overlay {
+    @extend %rel;
+
+    &::after {
+        @extend %center;
+        @extend %w-100;
+        @extend %h-100;
+        background-image: linear-gradient(to top, #000000e8, #3b3b3ba6, #77777759, #b9b9b900, #ffffff00);
+    }
+}

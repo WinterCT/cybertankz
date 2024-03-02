@@ -1,0 +1,378 @@
+//=============================
+//match item style css
+//=============================
+
+
+.match {
+
+
+    &__item {
+        @include add-prefix(transition, $transition);
+        background-color: $primary-color;
+        border-top: 2px solid $theme-color;
+        border-bottom: 2px solid $theme-color;
+
+        &--single {
+            background-color: none;
+            background-size: cover;
+            background-position: center;
+
+            .match {
+
+                &__item {
+                    &-title {
+                        @include breakpoint(lg) {
+                            padding-block-start: 100px;
+                        }
+
+
+                    }
+
+                    &-top {
+                        @extend %mb-40;
+                    }
+
+                    &-bottom {
+                        padding-block-end: 70px;
+
+                        @include breakpoint(lg) {
+                            padding-block-end: 100px;
+                        }
+                    }
+                }
+
+                &__team {
+                    &-thumb {
+                        max-inline-size: 100%;
+                    }
+                }
+
+            }
+        }
+
+        &--style-2 {
+            background-color: none;
+            background-size: cover;
+            background-position: center;
+
+            .match {
+                &__item {
+                    &-title {
+                        @include breakpoint(lg) {
+                            padding-block-start: 60px;
+                        }
+                    }
+
+                    &-top {
+                        @extend %mb-40;
+                    }
+
+                    &-bottom {
+                        padding-block-end: 60px;
+                    }
+                }
+
+                &__team {
+                    &-thumb {
+                        max-inline-size: 100%;
+                    }
+                }
+            }
+
+        }
+
+        &-top {
+            @extend %rel;
+        }
+
+        &-topTeam {
+            @extend %d-inline-block,
+            %abs;
+            top: 0;
+            left: 0;
+            background-color: $theme-color;
+            color: $white-color;
+            padding-block: .5rem;
+            padding-inline: .75rem;
+            clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+
+            h5 {
+                @extend %mb-0;
+
+                @include breakpoint(max-md) {
+                    @include font-size(16px);
+                }
+            }
+
+            @include breakpoint(sm) {
+                padding-block: .5rem;
+                padding-inline-start: 2.5rem;
+                padding-inline-end: 13%;
+                clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
+            }
+        }
+
+        &-topPrize {
+            @extend .match__item-topTeam;
+            left: auto;
+            right: 0;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 5% 100%);
+
+            @include breakpoint(sm) {
+                padding-inline-start: 13%;
+                padding-inline-end: 2.5rem;
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
+            }
+        }
+
+        &-title {
+            @extend %text-center;
+            padding-block-start: 70px;
+            padding-inline: 30px;
+            margin-block-end: 30px;
+
+            @include breakpoint(lg) {
+                padding-inline: 30px;
+                padding-block-start: 30px;
+            }
+
+            .text-btn {
+                @extend %ml-10;
+                color: $white-color;
+
+                &:hover {
+                    color: $white-color;
+                }
+            }
+        }
+
+        &-bottom {
+            padding-block-end: 30px;
+            padding-inline: 15px;
+        }
+
+        &-bottomList {
+            @extend %flex,
+            %align-items-center,
+            %justify-evenly,
+            %mb-0;
+            flex-direction: column;
+            gap: 30px;
+
+            @include breakpoint(md) {
+                flex-direction: row;
+                gap: 20px;
+            }
+        }
+
+        &:hover {
+            @include add-prefix(transform, translateY(-3px));
+            box-shadow: 0 0 50px rgba($theme-color, $alpha: .15);
+        }
+    }
+
+    &__team {
+        &:nth-last-of-type(1) {
+            .match__team-inner {
+                flex-direction: column;
+
+                @include breakpoint(lg) {
+                    flex-direction: row-reverse;
+                }
+            }
+        }
+
+        &-inner {
+            @extend %flex,
+            %align-items-center,
+            %text-center;
+            gap: 10px;
+            flex-direction: column;
+
+
+
+            @include breakpoint(lg) {
+                gap: 30px;
+                flex-direction: row;
+                text-align: left
+            }
+        }
+
+        &-thumb {
+            max-inline-size: 100px;
+        }
+
+        &-members {
+            @extend %flex,
+            %align-items-center;
+        }
+
+        &-member {
+            a {
+                @extend %hidden;
+                @include box(40px);
+                display: grid;
+                place-items: center;
+                border-radius: 50%;
+                @include add-prefix(transition, $transition);
+
+
+                &:hover {
+                    @include add-prefix(transform, translateY(-3px));
+                }
+            }
+        }
+    }
+
+    &__vs {
+        h3 {
+            @include font-size(36px);
+        }
+    }
+}
+
+.match-item,
+.match-item-2 {
+    &.home-3 {
+        .match-content {
+            background-color: $primary-color;
+
+            .match-game-info {
+                h4 {
+                    a {
+                        color: $white-color;
+
+                        &:hover {
+                            color: $white-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.match-content {
+    padding: 20px 15px;
+    background-color: $white-color;
+
+    @include breakpoint(lg) {
+        padding: 30px;
+    }
+}
+
+.match-header {
+    background-color: $theme-color;
+    padding: 5px 15px;
+    gap: 5px;
+
+    @include breakpoint(lg) {
+        padding: 6px 30px;
+    }
+
+    p {
+        @extend %mb-0;
+        @include font-size(16px);
+        font-family: $text-font;
+        text-transform: capitalize;
+    }
+}
+
+.match-game-info {
+    @extend %text-center;
+
+    @include breakpoint(lg) {
+        text-align: start;
+    }
+
+    h4 {
+        a {
+            color: $black-color;
+
+            &:hover {
+                color: $white-color;
+            }
+        }
+
+    }
+
+    p {
+        @extend %mb-0;
+        color: $grey-color;
+        gap: 30px;
+
+
+        span {
+            &:first-child {
+                @extend %rel;
+
+                &::after {
+                    @extend %abs;
+                    right: -15px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    height: 70%;
+                    width: 3px;
+                    background: #d4d4d4;
+                }
+            }
+        }
+    }
+}
+
+.match-team-list {
+    gap: 15px;
+
+    @include breakpoint(sm) {
+        gap: 30px;
+    }
+}
+
+.match-team-thumb {
+    max-inline-size: 100px;
+    margin-inline: auto;
+
+    a {
+        img {
+            transition: .4s linear;
+        }
+
+        &:hover {
+            img {
+                transform: rotateY(360deg);
+            }
+        }
+    }
+}
+
+.match-social-list {
+    gap: 10px;
+
+    a {
+        transition: .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+        &:hover {
+            transform: translateY(-2px);
+            filter: drop-shadow(0 3px 2px rgba(0, 0, 0, 0.301));
+        }
+    }
+
+    .default-btn {
+        line-height: 50px;
+        @extend %ml-15;
+    }
+}
+
+
+.match-item-2 {
+    .match-social-list {
+        @extend %mt-15;
+        @extend %mb-0;
+    }
+}
+
+.upcome-match-header {
+    @extend %text-center;
+    padding: 20px 10px;
+    text-transform: capitalize;
+}

@@ -1,0 +1,25 @@
+.product-item {
+    .product-inner {
+        @extend %p-10;
+        background: $primary-color;
+        @include add-prefix(transition, $transition);
+
+        &:hover {
+            background: $theme-color;
+
+            .product-thumb {
+                img {
+                    @include add-prefix(transform, scale(1.2) rotate(5deg));
+                }
+            }
+        }
+
+        .product-thumb {
+            @extend %hidden;
+
+            img {
+                @include add-prefix(transition, $transition);
+            }
+        }
+    }
+}

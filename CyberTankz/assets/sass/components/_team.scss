@@ -1,0 +1,245 @@
+.team {
+    &__item {
+        @extend %rel;
+        @include add-prefix(transition, $transition);
+        padding-inline: 30px;
+        padding-block-start: 30px;
+        padding-block-end: 60px;
+        background-image: url(../images/team/1.jpg);
+        background-size: cover;
+
+        @include breakpoint(lg) {
+            padding-block-end: 70px;
+        }
+
+        &-inner {
+            @extend %text-center;
+        }
+
+        &-thumb {
+            @extend %mb-25;
+
+            img {
+                @include add-prefix(transition, $transition);
+            }
+        }
+
+        &-content {
+            >p {
+                text-transform: capitalize;
+            }
+        }
+
+        .country-btn {
+            @extend %abs,
+            %d-inline-block,
+            %mb-0;
+            @include font-size(16px);
+            width: 50%;
+            bottom: 0;
+            left: 0;
+            background-color: lighten($body-color, $amount: 5);
+            line-height: 45px;
+            font-family: $title-font;
+            text-transform: capitalize;
+
+            @include breakpoint(lg) {
+                line-height: 60px;
+            }
+        }
+
+        .default-btn {
+            @extend %abs;
+            bottom: 0;
+            right: 0;
+            @include font-size(16px);
+            padding-inline: 0;
+            width: 50%;
+            border-radius: 0;
+        }
+
+        &:hover {
+            @include add-prefix(transform, translateY(-5px));
+
+            .team__item-thumb {
+                img {
+                    @include add-prefix(transform, rotateX(1turn))
+                }
+            }
+        }
+    }
+
+    &__member {
+        &-list {
+            @extend %flex,
+            %align-items-center,
+            %justify-center;
+        }
+
+        &-item {
+            a {
+                @extend %hidden;
+                @include box(40px);
+                @include add-prefix(transition, $transition);
+                border-radius: 50%;
+                object-fit: cover;
+                aspect-ratio: 1/1;
+
+                &:hover {
+                    @include add-prefix(transform, translateY(-4px));
+                }
+            }
+
+        }
+    }
+}
+
+
+.about-team {
+    background-color: $primary-color;
+
+    &-thumb {
+        @extend %rel;
+
+        >img {
+            @extend %w-100;
+        }
+
+        .game-name {
+            @extend %abs,
+            %p-10;
+            background-color: $primary-color;
+            border: 1px solid $theme-color;
+            bottom: 15px;
+            left: 15px;
+            max-width: 35%;
+
+            @include breakpoint(md) {
+                padding-inline-end: 30px;
+                bottom: 30px;
+                left: 30px;
+                max-width: 100%;
+            }
+        }
+    }
+
+    &-content {
+        padding: 25px;
+
+        @include breakpoint(md) {
+            padding: 30px;
+        }
+    }
+
+    &-title {
+        h3 {
+            @include font-size(36px);
+        }
+
+        p {
+            @extend %mb-0;
+        }
+    }
+
+    &-top {
+        @extend %flex,
+        %align-items-center,
+        %justify-between,
+        %pb-25;
+        border-bottom: 1px solid rgba($white-color, $alpha: .50);
+        gap: 30px;
+    }
+
+    &-bottom {
+        @extend %pt-30;
+    }
+
+    &-subtitle {
+        @extend %flex,
+        %align-items-center,
+        %justify-between,
+        %mb-20;
+
+        h4 {
+            @extend %mb-0;
+        }
+    }
+
+    &-badge {
+        @extend %flex,
+        %align-items-center;
+        flex-wrap: nowrap;
+
+        &-title {
+            @extend %mr-20;
+
+            h4 {
+                @extend %mb-0,
+                %rel;
+
+                &:after {
+                    @extend %abs;
+                    content: ":";
+                    right: -10px;
+                }
+            }
+        }
+    }
+}
+
+.team-meta {
+    gap: 10px;
+
+    @include breakpoint(md) {
+        gap: 15px;
+    }
+
+    .team-meta-item {
+        @extend %text-center;
+        @include add-prefix(transform, skew(-10deg));
+        padding: 10px 15px;
+        background-color: rgba($primary-color, $alpha: .50);
+
+        @include breakpoint(md) {
+            padding: 15px 20px;
+        }
+
+    }
+
+    .left {
+        @extend %mb-10,
+        %d-inline-block;
+
+        i {
+            @include font-size(30px);
+        }
+    }
+
+    .right {
+        @extend %mb-0;
+    }
+}
+
+.social {
+    @extend %flex,
+    %align-items-center,
+    %mb-0;
+    gap: 15px;
+
+    &__link {
+        @include font-size(18px);
+        @include box(30px);
+        border: 1px solid rgba($white-color, $alpha: .30);
+        display: grid;
+        place-items: center;
+        @include add-prefix(transform, skew(-10deg));
+        color: $white-color;
+
+        &:hover {
+            background-color: $theme-color;
+            color: $white-color;
+            border-radius: 8px;
+            border-color: $theme-color;
+        }
+    }
+}

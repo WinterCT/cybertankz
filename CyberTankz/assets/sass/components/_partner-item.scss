@@ -1,0 +1,80 @@
+.accordion-item {
+    background: $primary-color;
+
+    .accordion-header {
+        .accordion-button {
+            background: $theme-color;
+            box-shadow: none;
+            padding: 1rem 1.5rem;
+            @include add-prefix(transition, $transition);
+
+            &.collapsed {
+                background: $primary-color;
+                border-bottom: none;
+
+                &::after {
+                    display: block;
+                }
+
+                &::before {
+                    display: none;
+                }
+            }
+
+            &::after {
+                background-image: none;
+                content: "\efc2";
+                color: $white-color;
+                @include font-size($fs-h5);
+                display: none;
+                font-family: IcoFont !important;
+            }
+
+            &::before {
+                flex-shrink: 0;
+                width: 1.25rem;
+                height: 1.25rem;
+                content: "\ef9a";
+                transition: transform .2s ease-in-out;
+                right: 25px;
+                position: absolute;
+                color: $white-color;
+                @include font-size($fs-h5);
+                font-family: IcoFont !important;
+            }
+
+            .accor-header-inner {
+                .accor-thumb {
+                    @extend %mr-15;
+                }
+
+                .accor-title {
+                    @extend %text-midium;
+                    @include font-size($fs-h3);
+                    @extend %white-color;
+                    font-family: $title-font;
+                    text-transform: capitalize;
+                }
+            }
+        }
+    }
+
+    .accordion-collapse {
+        background: $primary-color;
+
+        .accordion-body {
+            padding-inline: 1.5rem;
+            padding-block-start: 1rem;
+            padding-block-end: 1.5rem;
+
+            p {
+                color: $white-color;
+            }
+
+            .default-btn {
+                line-height: 45px;
+                padding-inline: 1rem;
+            }
+        }
+    }
+}

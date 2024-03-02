@@ -1,0 +1,9 @@
+.sponsor {
+    background: $theme-color;
+    padding-block: 50px;
+
+    &__slider {
+        @extend %hidden;
+    }
+
+}
